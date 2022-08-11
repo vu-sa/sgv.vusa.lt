@@ -20,7 +20,7 @@ export default function MarkdownMapper(props) {
               },
             },
           },
-          Box: { component: Box },
+          Box: { component: Box, props: { sx: { paddingRight: '5%' } } },
           h1: {
             component: Typography,
             props: {
