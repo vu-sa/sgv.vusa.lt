@@ -13,16 +13,14 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { Category } from '../types/Category'
 import CategoryAccordion from './CategoryAccordion'
-import MainPage from '../pages/MainPage'
-import { Route, Switch, useParams } from 'react-router-dom'
-import { PostEntity } from '../types/Post'
+import { useParams } from 'react-router-dom'
 
 const drawerWidth = 380
 
 type NavDrawerProps = {
   categories: Category[]
   selectedCategory?: string
-  posts: PostEntity[]
+  children: React.ReactNode
 }
 
 export default function NavigationDrawer(props: NavDrawerProps) {
@@ -30,7 +28,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
-  const { categories, selectedCategory, posts } = props
+  const { categories, selectedCategory } = props
   const { category } = useParams<{ category?: string }>()
   const drawer = (
     <div>
@@ -112,14 +110,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Switch>
-          <Route path={'/:category/:subcategory'}>
-            <MainPage category={category} posts={posts} />
-          </Route>
-          <Route path={'/:category/'}>
-            <MainPage category={category} posts={posts} />
-          </Route>
-        </Switch>
+        {props.children}
       </Box>
     </Box>
   )

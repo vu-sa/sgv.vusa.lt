@@ -1,4 +1,5 @@
 import { Category } from '../types/Category'
+import { Language } from '../types/Language'
 import { PostEntity } from '../types/Post'
 
 interface Dictionary<T> {
@@ -45,6 +46,7 @@ export function getUniqueCategories(posts: PostEntity[]): Category[] {
           post.subcategory.length > 1
             ? [{ displayName: post.subcategory, urlName: parseCategoryName(post.subcategory) }]
             : [],
+        language: post.language == 'EN' ? Language.EN : Language.LT,
       })
     } else {
       const index = categories.findIndex((x) => x.displayName == post.category)

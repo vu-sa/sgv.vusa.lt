@@ -1,13 +1,15 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
-import { useParams } from 'react-router-dom'
+import { Route, Switch, useParams } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import React, { useEffect, useState } from 'react'
 import { getAllPosts } from './clients/PostClient'
 import { PostEntity } from './types/Post'
 import NavigationDrawer from './components/NavigationDrawer'
 import { getUniqueCategories } from './utilities/ParseCategoryName'
+import MainMenu from './pages/MainMenu'
+import MainPage from './pages/MainPage'
 
 export default function App() {
   useEffect(() => {
@@ -26,11 +28,17 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NavigationDrawer
-        categories={getUniqueCategories(posts)}
-        selectedCategory={category}
-        posts={posts}
-      />
+      <NavigationDrawer categories={getUniqueCategories(posts)} selectedCategory={category}>
+        <Route exact path={'/'}>
+          <MainMenu posts={posts} locale={posts[0]?.language ?? 'LT'} />
+        </Route>
+        <Route exact path={'/:category/'}>
+          <MainPage category={category} posts={posts} />
+        </Route>
+        <Route path={'/:category/:subcategory'}>
+          <MainPage category={category} posts={posts} />
+        </Route>
+      </NavigationDrawer>
     </ThemeProvider>
   )
 }

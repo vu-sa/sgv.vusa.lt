@@ -14,7 +14,6 @@ export default function MainPage({ category, posts }: MainPageProps) {
   const { subcategory } = useParams<{ subcategory?: string }>()
   const [onScreenPost, setOnScreenPost] = useState<PostEntity | undefined>()
 
-  console.log(subcategory)
   return (
     <Container>
       {getUniqueCategories(posts)
