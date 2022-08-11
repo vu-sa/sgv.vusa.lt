@@ -12,7 +12,8 @@ const options = {
         variant: 'h5',
       },
     },
-    h2: { component: Typography, props: { gutterBottom: true, variant: 'h6' } },
+    h1: { component: Typography, props: { gutterBottom: true, variant: 'h2' } },
+    h2: { component: Typography, props: { gutterBottom: true, variant: 'h3' } },
     h3: { component: Typography, props: { gutterBottom: true, variant: 'subtitle1' } },
     h4: {
       component: Typography,
@@ -21,8 +22,8 @@ const options = {
     p: { component: Typography, props: { paragraph: true } },
     a: { component: Link },
     li: {
-      component: ({ props }) => (
-        <li style={{ marginTop: '5px' }}>
+      component: ({ ...props }) => (
+        <li>
           <Typography component='span' {...props} />
         </li>
       ),
