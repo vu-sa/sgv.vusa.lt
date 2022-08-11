@@ -8,6 +8,7 @@ import { getAllPosts } from './clients/PostClient'
 import { PostEntity } from './types/Post'
 import NavigationDrawer from './components/NavigationDrawer'
 import { getUniqueCategories } from './utilities/ParseCategoryName'
+import './fonts/raleway-v28-latin-regular.ttf';
 
 export default function App() {
   useEffect(() => {
