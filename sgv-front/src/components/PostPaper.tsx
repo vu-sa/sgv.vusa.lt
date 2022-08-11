@@ -10,7 +10,7 @@ type PostPaperProps = {
 export default function PostPaper({ post }: PostPaperProps) {
   return (
     <Container>
-      <Typography>{post.title}</Typography>
+      <Typography variant='h2'>{post.title}</Typography>
       <Markdown>{post.content}</Markdown>
     </Container>
   )
