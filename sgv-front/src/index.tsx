@@ -2,11 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Route path='/:category' component={App}></Route>
+        <Route path='/' component={App}></Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
 )
 
