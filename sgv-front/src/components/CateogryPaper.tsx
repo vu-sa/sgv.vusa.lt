@@ -1,4 +1,5 @@
 import { Container, Typography } from '@mui/material'
+import React from 'react'
 import { Category } from '../types/Category'
 import { PostEntity } from '../types/Post'
 import PostPaper from './PostPaper'

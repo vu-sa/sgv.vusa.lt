@@ -1,7 +1,7 @@
 import { Container, Typography } from '@mui/material'
-import Markdown from 'markdown-to-jsx'
 import React from 'react'
 import { PostEntity } from '../types/Post'
+import Markdown from './MarkdownMapper'
 
 type PostPaperProps = {
   post: PostEntity
