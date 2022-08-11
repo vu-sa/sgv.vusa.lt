@@ -29,7 +29,6 @@ const theme = createTheme({
       fontFamily: 'GT Walsheim',
     },
     fontWeightBold: 300,
-
   },
 })
 

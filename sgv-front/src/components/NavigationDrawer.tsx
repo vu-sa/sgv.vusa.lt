@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -13,7 +12,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { Category } from '../types/Category'
 import CategoryAccordion from './CategoryAccordion'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { TextDictionary } from '../locale/TextDictionary'
 
 const drawerWidth = 380
 
@@ -32,11 +32,14 @@ export default function NavigationDrawer(props: NavDrawerProps) {
   const { category } = useParams<{ category?: string }>()
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
+      <Box sx={{ padding: '15%' }}>
+        <Link to='/'>
+          <img src='https://i.imgur.com/0WOljtv.png' width='100%'></img>
+        </Link>
+      </Box>
       <List>
         {categories.map((category, key) => (
-          <ListItem key={key}>
+          <ListItem key={key} sx={{ width: '100%' }}>
             <CategoryAccordion
               selectedCategory={selectedCategory == category.urlName}
               category={category}
@@ -70,7 +73,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Responsive drawer
+            {TextDictionary.SgvHeader['LT']}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -17,39 +17,37 @@ export default function CategoryAccordion(props: CategoryAccordionProps) {
   const [expanded, setExpanded] = React.useState<boolean>(props.selectedCategory && isExpandable)
 
   return (
-    <div>
-      <Accordion
-        color={props.selectedCategory ? 'primary' : 'secondary'}
+    <Accordion
+      color={props.selectedCategory ? 'primary' : 'secondary'}
+      sx={{ width: '100%' }}
+      expanded={expanded}
+    >
+      <AccordionSummary
         sx={{ width: '100%' }}
-        expanded={expanded}
+        expandIcon={isExpandable ? <ExpandMoreIcon /> : null}
+        aria-controls={`${props.category.urlName}-content`}
+        id={props.category.urlName}
+        onClick={() => {
+          if (isExpandable) setExpanded(!expanded)
+        }}
       >
-        <AccordionSummary
-          sx={{ width: '100%' }}
-          expandIcon={isExpandable ? <ExpandMoreIcon /> : null}
-          aria-controls={`${props.category.urlName}-content`}
-          id={props.category.urlName}
-          onClick={() => {
-            if (isExpandable) setExpanded(!expanded)
-          }}
-        >
-          <Link style={{ textDecoration: 'none' }} to={`/${props.category.urlName}`}>
-            {props.category.displayName}
-          </Link>
-        </AccordionSummary>
-        <AccordionDetails>
-          {props.category.subcategories.map((subcategory, key) => (
-            <Typography width={'100%'} key={key}>
-              <Link
-                key={key}
-                style={{ textDecoration: 'none' }}
-                to={`/${props.category.urlName}/${subcategory.urlName}`}
-              >
-                {subcategory.displayName}
-              </Link>
-            </Typography>
-          ))}
-        </AccordionDetails>
-      </Accordion>
-    </div>
+        <Link style={{ textDecoration: 'none' }} to={`/${props.category.urlName}`}>
+          {props.category.displayName}
+        </Link>
+      </AccordionSummary>
+      <AccordionDetails>
+        {props.category.subcategories.map((subcategory, key) => (
+          <Typography width={'100%'} key={key}>
+            <Link
+              key={key}
+              style={{ textDecoration: 'none' }}
+              to={`/${props.category.urlName}/${subcategory.urlName}`}
+            >
+              {subcategory.displayName}
+            </Link>
+          </Typography>
+        ))}
+      </AccordionDetails>
+    </Accordion>
   )
 }

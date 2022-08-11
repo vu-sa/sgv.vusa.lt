@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import { TextDictionary } from '../locale/TextDictionary'
 import { Category } from '../types/Category'
 import ProgressBar from './ProgressBar'
+import { Link } from 'react-router-dom'
 
 interface CategoryCardProps {
   category: Category
@@ -17,31 +18,32 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ category, readPostCount, postCount }: CategoryCardProps) {
   return (
-    <Card sx={{ width: '30%', height: '20%', display: 'inline-block', margin: '1%' }}>
-      <CardMedia
-        component='img'
-        height='140'
-        image='https://i.imgur.com/KaQVyCP.png'
-        alt='Kategorija'
-      />
-      <CardContent>
-        <Typography gutterBottom variant='h5' component='div'>
-          {category.displayName}
-        </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          Quae nesciunt perferendis vel in optio et minus non. Et ex nisi delectus. Mollitia et quia
-          quia enim dignissimos quisquam
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ justifyContent: 'space-between' }}>
-        <Button size='small'>{TextDictionary.MoreButton[category.language]}</Button>
-        <Typography>
-          {readPostCount}/{postCount}
-        </Typography>
-      </CardActions>
-      <CardActions>
-        <ProgressBar progress={readPostCount / postCount} />
-      </CardActions>
-    </Card>
+    <Link to={category.urlName}>
+      <Card sx={{ width: '30%', height: '20%', display: 'inline-block', margin: '1%' }}>
+        <CardMedia
+          component='img'
+          height='140'
+          image='https://i.imgur.com/KaQVyCP.png'
+          alt='Kategorija'
+        />
+        <CardContent>
+          <Typography gutterBottom variant='h5' component='div'>
+            {category.displayName}
+          </Typography>
+          <Typography variant='body2' color='text.secondary'>
+            Quae nesciunt perferendis vel in optio et minus non. Et ex nisi delectus. Mollitia et
+            quia quia enim dignissimos quisquam
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ justifyContent: 'space-between' }}>
+          <Typography>
+            {readPostCount}/{postCount}
+          </Typography>
+        </CardActions>
+        <CardActions>
+          <ProgressBar progress={readPostCount / postCount} />
+        </CardActions>
+      </Card>
+    </Link>
   )
 }
