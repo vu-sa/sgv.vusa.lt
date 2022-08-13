@@ -18,8 +18,8 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ category, readPostCount, postCount }: CategoryCardProps) {
   return (
-    <Link to={category.urlName}>
-      <Card sx={{ width: '30%', height: '20%', display: 'inline-block', margin: '1%' }}>
+    <Link to={category.urlName} style={{ textDecoration: 'none' }}>
+      <Card sx={{ width: '100%', height: '100%', margin: '1%' }}>
         <CardMedia
           component='img'
           height='140'
@@ -27,12 +27,19 @@ export default function CategoryCard({ category, readPostCount, postCount }: Cat
           alt='Kategorija'
         />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+          <Typography
+            sx={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: '2',
+              WebkitBoxOrient: 'vertical',
+            }}
+            gutterBottom
+            variant='h6'
+            component='div'
+          >
             {category.displayName}
-          </Typography>
-          <Typography variant='body2' color='text.secondary'>
-            Quae nesciunt perferendis vel in optio et minus non. Et ex nisi delectus. Mollitia et
-            quia quia enim dignissimos quisquam
           </Typography>
         </CardContent>
         <CardActions sx={{ justifyContent: 'space-between' }}>

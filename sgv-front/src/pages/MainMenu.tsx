@@ -1,4 +1,4 @@
-import { Box, Container, keyframes, Typography } from '@mui/material'
+import { Box, Container, Grid, keyframes, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { PostEntity } from '../types/Post'
@@ -17,24 +17,25 @@ export default function MainMenu({ posts, locale }: MainPageProps) {
   return (
     <Container>
       <Box>
-        <Typography variant='h3'>{TextDictionary.ProgressTitle[locale]}</Typography>
+        <Typography variant='h4'>{TextDictionary.ProgressTitle[locale]}</Typography>
       </Box>
       <Box>
-        <Typography variant='h3'>{TextDictionary.ContinueTitle[locale]}</Typography>
+        <Typography variant='h4'>{TextDictionary.ContinueTitle[locale]}</Typography>
       </Box>
-      <Box width='100%'>
-        <Typography variant='h3'>{TextDictionary.AllThemesTitle[locale]}</Typography>
-        <Container sx={{ flexDirection: 'row', justifyContent: 'center' }}>
-          {categories.map((category, key) => (
+      <Grid container spacing={6}>
+        <Grid item sm={12}>
+          <Typography variant='h4'>{TextDictionary.AllThemesTitle[locale]}</Typography>
+        </Grid>
+        {categories.map((category, key) => (
+          <Grid sx={{ padding: '2%' }} item xs={8} sm={8} md={8} lg={6} key={key}>
             <CategoryCard
               category={category}
               postCount={posts.filter((post) => post.category == category.displayName).length}
               readPostCount={0}
-              key={key}
             ></CategoryCard>
-          ))}
-        </Container>
-      </Box>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   )
 }

@@ -26,6 +26,17 @@ const theme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          '-ms-overflow-style': 'none',
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      },
+    },
   },
   palette: {
     primary: {
@@ -44,7 +55,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Myriad Pro Regular, Myriad Pro Bold',
     h1: {
       fontFamily: 'Myriad Pro Regular, Myriad Pro Bold',
     },
