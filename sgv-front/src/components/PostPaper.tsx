@@ -1,17 +1,24 @@
-import { Container, Typography } from '@mui/material'
+import { Container, Paper, Typography } from '@mui/material'
 import React from 'react'
 import { PostEntity } from '../types/Post'
 import Markdown from './MarkdownMapper'
 
-type PostPaperProps = {
-  post: PostEntity
+type SubcategoryPaperProps = {
+  posts: PostEntity[]
+  subcategoryName: string | undefined
 }
 
-export default function PostPaper({ post }: PostPaperProps) {
+export default function SubcategoryPaper({ posts, subcategoryName }: SubcategoryPaperProps) {
   return (
     <Container>
-      <Typography variant='h2'>{post.title}</Typography>
-      <Markdown>{post.content}</Markdown>
+      <Paper elevation={3} sx={{ padding: '3%', marginTop: '2%' }}>
+        {subcategoryName && posts.length > 1 ? (
+          <Typography variant='h2'>{subcategoryName}</Typography>
+        ) : null}
+        {posts.map((post, key) => (
+          <Markdown key={key}>{post.content}</Markdown>
+        ))}
+      </Paper>
     </Container>
   )
 }

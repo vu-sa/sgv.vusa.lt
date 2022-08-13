@@ -63,5 +63,8 @@ export function getUniqueCategories(posts: PostEntity[]): Category[] {
         }
     }
   })
+  categories.forEach((x) =>
+    x.subcategories.sort((a, b) => a.displayName.localeCompare(b.displayName)),
+  )
   return categories
 }

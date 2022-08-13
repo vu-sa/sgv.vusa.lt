@@ -22,7 +22,9 @@ export default function MainPage({ category, posts }: MainPageProps) {
           <CategoryPaper
             key={key}
             category={category}
-            posts={posts.filter((x) => x.category == category.displayName)}
+            posts={posts
+              .filter((x) => x.category == category.displayName)
+              .sort((a, b) => a.subcategory.localeCompare(b.subcategory))}
             subcategory={subcategory?.length ?? 0 > 1 ? subcategory : undefined}
           />
         ))}

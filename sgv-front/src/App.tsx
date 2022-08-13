@@ -10,7 +10,7 @@ import NavigationDrawer from './components/NavigationDrawer'
 import { getUniqueCategories } from './utilities/ParseCategoryName'
 import MainMenu from './pages/MainMenu'
 import MainPage from './pages/MainPage'
-import './fonts/raleway-v28-latin-regular.ttf'
+import './App.css'
 
 export default function App() {
   useEffect(() => {

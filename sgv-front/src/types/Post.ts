@@ -1,3 +1,5 @@
+import { Subcategory } from './Category'
+
 export interface PostEntity extends PostDto {
   id: number
   createdAt: Date
@@ -13,4 +15,8 @@ export interface PostDto {
   moreLink: string
   facultySpecific: string
   language: string
+}
+
+export interface PostsBySubcategory {
+  [subcategory: string]: PostEntity[]
 }

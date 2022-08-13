@@ -17,11 +17,7 @@ export default function CategoryAccordion(props: CategoryAccordionProps) {
   const [expanded, setExpanded] = React.useState<boolean>(props.selectedCategory && isExpandable)
 
   return (
-    <Accordion
-      color={props.selectedCategory ? 'primary' : 'secondary'}
-      sx={{ width: '100%' }}
-      expanded={expanded}
-    >
+    <Accordion sx={{ width: '100%' }} expanded={expanded}>
       <AccordionSummary
         sx={{ width: '100%' }}
         expandIcon={isExpandable ? <ExpandMoreIcon /> : null}
@@ -32,7 +28,9 @@ export default function CategoryAccordion(props: CategoryAccordionProps) {
         }}
       >
         <Link style={{ textDecoration: 'none' }} to={`/${props.category.urlName}`}>
-          {props.category.displayName}
+          <Typography color='primary' variant='h6'>
+            {props.category.displayName}
+          </Typography>
         </Link>
       </AccordionSummary>
       <AccordionDetails>
@@ -43,7 +41,9 @@ export default function CategoryAccordion(props: CategoryAccordionProps) {
               style={{ textDecoration: 'none' }}
               to={`/${props.category.urlName}/${subcategory.urlName}`}
             >
-              {subcategory.displayName}
+              <Typography paddingBottom='2%' color='black'>
+                {subcategory.displayName}
+              </Typography>
             </Link>
           </Typography>
         ))}
