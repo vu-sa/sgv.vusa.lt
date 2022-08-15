@@ -4,4 +4,5 @@ export const TextDictionary = {
   ProgressTitle: { LT: 'Tavo progresas:', EN: 'Your progress:' },
   ContinueTitle: { LT: 'Tęsk kur baigei:', EN: 'Continue where you stopped:' },
   AllThemesTitle: { LT: 'Visos temos', EN: 'All themes' },
+  Search: { LT: 'Ieškoti...', EN: 'Search...' },
 }
