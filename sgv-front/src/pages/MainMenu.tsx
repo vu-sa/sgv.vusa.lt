@@ -1,9 +1,7 @@
-import { Box, Container, Grid, keyframes, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Box, Container, Grid, Typography } from '@mui/material'
+import React from 'react'
 import { PostEntity } from '../types/Post'
-import { getUniqueCategories, parseCategoryName } from '../utilities/ParseCategoryName'
-import CategoryPaper from '../components/CateogryPaper'
+import { getUniqueCategories } from '../utilities/ParseCategoryName'
 import { TextDictionary } from '../locale/TextDictionary'
 import CategoryCard from '../components/CategoryCard'
 
@@ -30,8 +28,11 @@ export default function MainMenu({ posts, locale }: MainPageProps) {
           <Grid sx={{ padding: '2%' }} item xs={8} sm={8} md={8} lg={6} key={key}>
             <CategoryCard
               category={category}
-              postCount={posts.filter((post) => post.category == category.displayName).length}
+              postCount={
+                posts.filter((post) => post.category.displayName == category.displayName).length
+              }
               readPostCount={0}
+              cardImageUrl={category.cardImageUrl}
             ></CategoryCard>
           </Grid>
         ))}

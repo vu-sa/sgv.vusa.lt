@@ -32,4 +32,10 @@ model Post {
   moreLink String
 
   language String
+
+  categoryCardImageUrl String
+
+  categoryTitleImageUrl String
+
+  categoryPriority Int
 }

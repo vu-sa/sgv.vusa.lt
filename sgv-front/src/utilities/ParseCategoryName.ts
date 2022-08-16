@@ -38,18 +38,21 @@ export function parseCategoryName(category: string): string {
 export function getUniqueCategories(posts: PostEntity[]): Category[] {
   const categories: Category[] = []
   posts.forEach((post) => {
-    if (!categories.find((category) => category.displayName == post.category)) {
+    if (!categories.find((category) => category.displayName == post.category.displayName)) {
       categories.push({
-        displayName: post.category,
-        urlName: parseCategoryName(post.category),
+        displayName: post.category.displayName,
+        urlName: parseCategoryName(post.category.displayName),
         subcategories:
           post.subcategory.length > 1
             ? [{ displayName: post.subcategory, urlName: parseCategoryName(post.subcategory) }]
             : [],
         language: post.language == 'EN' ? Language.EN : Language.LT,
+        cardImageUrl: post.category.cardImageUrl,
+        titleImageUrl: post.category.titleImageUrl,
+        priority: post.category.priority,
       })
     } else {
-      const index = categories.findIndex((x) => x.displayName == post.category)
+      const index = categories.findIndex((x) => x.displayName == post.category.displayName)
       if (
         !categories[index].subcategories.find(
           (subcategory) => subcategory.displayName == post.subcategory,

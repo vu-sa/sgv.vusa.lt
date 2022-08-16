@@ -1,36 +1,46 @@
 import { Post, PrismaClient } from '@prisma/client';
 import { Request, Response, NextFunction } from 'express';
 import { PostData } from '../staticData/PostData';
-import { PostDto, PostEntity } from '../types/Post';
+import { mapDtoToPost, mapPostToDto, mapPostToDtos, PostDto, PostEntity } from '../types/Post';
 
 const prisma = new PrismaClient();
 
-
-prisma.post.findMany().then(x => {
-    let postCount = x.length;
-    // if(x.length > 1)
-    // {
-    //     prisma.post.deleteMany({}).then(x =>
-    //         {
+const loadUpStaticPosts = async (req: Request, res: Response, next: NextFunction) => {
+    let apiKey: string = req.params.key;
+    if (!(apiKey 
+        === "z2b1x5q7ZlmS1YvwqBl080iaPN7267CtQdTU9rMEQzmu4iLOjmPxELpUER4YLZWUqwbqRPPn8EKtxOzkAO3BicG38rs10B22y7NnaMIoVMJQuUR5VsARB80Qkjpnxxau"))
+    {
+        return res.status(403).json({
+            message: "Forbidden"
+        });
+    }
+    let posts = await prisma.post.findMany()
+    if(posts.length >= 1)
+    {
+        prisma.post.deleteMany({}).then(x =>
+            {
                 
-    //         }
-    //     )
-    // }
-    if(postCount < 1)
+            }
+        )
+    }
+    if(posts.length < 1)
     {
         PostData.forEach(async (x: PostDto) => await prisma.post.create({
-            data: {
-                ...x
-            }
+            data: mapDtoToPost(x)
         }));
     }
-})
+    
+    return res.status(200).json({
+        message: 'Success!'
+    });
+
+};
 
 
 // getting all posts
 const getPosts = async (req: Request, res: Response, next: NextFunction) => {
     // get some posts
-    let result: PostEntity [] = await prisma.post.findMany();
+    let result: PostEntity [] = mapPostToDtos(await prisma.post.findMany());
     return res.status(200).json({
         message: result
     });
@@ -159,4 +169,4 @@ const addPost = async (req: Request, res: Response, next: NextFunction) => {
     });
 };
 
-export default { getPosts, getPost, updatePost, deletePost, addPost };
+export default { getPosts, getPost, updatePost, deletePost, addPost, loadUpStaticPosts };

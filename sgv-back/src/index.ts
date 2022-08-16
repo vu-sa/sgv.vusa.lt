@@ -41,8 +41,6 @@ router.use((req, res, next) => {
 // Have Node serve the files for our built React app
 router.use(express.static(path.resolve(__dirname, '../client/build')));
 
-
-
 /** Server */
 const httpServer = http.createServer(router);
 const PORT: any = process.env.PORT ?? 6060;

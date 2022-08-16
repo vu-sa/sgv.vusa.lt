@@ -53,7 +53,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
   const container = undefined
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', backgroundColor: '#fafafa' }}>
       <CssBaseline />
       <AppBar
         position='fixed'

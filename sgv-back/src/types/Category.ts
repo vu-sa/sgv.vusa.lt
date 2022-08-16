@@ -1,6 +1,6 @@
-export const enum Category {
-    Up = "UP",
-    Down = "DOWN",
-    Left = "LEFT",
-    Right = "RIGHT",
+export type Category = {
+  displayName: string
+  cardImageUrl: string
+  titleImageUrl: string
+  priority: number
   }

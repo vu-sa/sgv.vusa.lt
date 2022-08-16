@@ -14,18 +14,19 @@ interface CategoryCardProps {
   category: Category
   postCount: number
   readPostCount: number
+  cardImageUrl: string
 }
 
-export default function CategoryCard({ category, readPostCount, postCount }: CategoryCardProps) {
+export default function CategoryCard({
+  category,
+  readPostCount,
+  postCount,
+  cardImageUrl,
+}: CategoryCardProps) {
   return (
     <Link to={category.urlName} style={{ textDecoration: 'none' }}>
       <Card sx={{ width: '100%', height: '100%', margin: '1%' }}>
-        <CardMedia
-          component='img'
-          height='140'
-          image='https://i.imgur.com/KaQVyCP.png'
-          alt='Kategorija'
-        />
+        <CardMedia component='img' height='140' image={cardImageUrl} alt='Kategorija' />
         <CardContent>
           <Typography
             sx={{

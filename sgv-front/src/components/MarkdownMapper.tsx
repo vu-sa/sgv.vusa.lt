@@ -13,6 +13,8 @@ export default function MarkdownMapper(props) {
             props: {
               sx: {
                 flexDirection: 'row',
+                flexFlow: 'row wrap',
+                flexWrap: 'wrap',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',

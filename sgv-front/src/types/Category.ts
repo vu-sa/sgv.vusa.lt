@@ -5,6 +5,16 @@ export type Category = {
   urlName: string
   subcategories: Subcategory[]
   language: Language
+  cardImageUrl: string
+  titleImageUrl: string
+  priority: number
+}
+
+export type CategoryDto = {
+  displayName: string
+  cardImageUrl: string
+  titleImageUrl: string
+  priority: number
 }
 
 export type Subcategory = {
