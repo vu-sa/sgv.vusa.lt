@@ -2,7 +2,6 @@ import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
-import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
 import List from '@mui/material/List'
@@ -14,6 +13,7 @@ import { Category } from '../types/Category'
 import CategoryAccordion from './CategoryAccordion'
 import { Link, useParams } from 'react-router-dom'
 import { TextDictionary } from '../locale/TextDictionary'
+import SearchBar from './SearchBar'
 
 const drawerWidth = 380
 
@@ -32,7 +32,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
   const { category } = useParams<{ category?: string }>()
   const drawer = (
     <div>
-      <Box sx={{ padding: '15%' }}>
+      <Box sx={{ padding: '5% 15% 0 15%' }}>
         <Link to='/'>
           <img src='https://i.imgur.com/0WOljtv.png' width='100%'></img>
         </Link>
@@ -47,6 +47,17 @@ export default function NavigationDrawer(props: NavDrawerProps) {
           </ListItem>
         ))}
       </List>
+      <Box sx={{ pt: '32px', display: 'flex', justifyContent: 'center' }}>
+        <Link target='_blank' to='https://vusa.lt/'>
+          <img src='https://vusa.lt/logos/vusa.lin.hor.svg' width={drawerWidth * 0.4}></img>
+        </Link>
+        <Link target='_blank' to='https://www.vu.lt/parduotuve/'>
+          <img
+            src='https://ataskaita2021.vusa.lt/img/pkp_logo/atributika.jpg'
+            width={drawerWidth * 0.3}
+          ></img>
+        </Link>
+      </Box>
     </div>
   )
 
@@ -75,6 +86,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
           <Typography variant='h6' noWrap component='div'>
             {TextDictionary.SgvHeader['LT']}
           </Typography>
+          <SearchBar />
         </Toolbar>
       </AppBar>
       <Box
