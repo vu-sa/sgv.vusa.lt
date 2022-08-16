@@ -39,7 +39,22 @@ export default function SubcategoryPaper({
           <Typography variant='h2'>{subcategoryName}</Typography>
         ) : null}
         {posts.map((post, key) => (
-          <Markdown key={key}>{post.content}</Markdown>
+          <Container
+            sx={{
+              width: '100%',
+              justifyContent: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+            key={key}
+          >
+            <Container sx={{ textAlign: 'center', marginBottom: '2%' }}>
+              <Typography sx={{ padding: '2%', fontWeight: 600 }} variant='h5'>
+                {post.title}
+              </Typography>
+            </Container>
+            <Markdown>{post.content}</Markdown>
+          </Container>
         ))}
       </Paper>
     </Container>
