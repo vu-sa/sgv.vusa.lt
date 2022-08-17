@@ -26,7 +26,10 @@ router.use((req, res, next) => {
     }
     next();
 });
-
+router.use(express.static(path.resolve(__dirname, '../build')))
+router.get('/', function (req, res, next) {
+    res.render('index.html');
+})
 /** Routes */
 router.use('/', routes);
 
@@ -37,9 +40,6 @@ router.use((req, res, next) => {
         message: error.message
     });
 });
-
-// Have Node serve the files for our built React app
-router.use(express.static(path.resolve(__dirname, '../client/build')));
 
 /** Server */
 const httpServer = http.createServer(router);
