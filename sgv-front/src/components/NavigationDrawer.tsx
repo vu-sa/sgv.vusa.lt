@@ -57,7 +57,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
         }
       </List>
       <Box sx={{ pt: '32px', display: 'flex', justifyContent: 'center' }}>
-        <Link target='_blank' to='https://vusa.lt/'>
+        <Link target='_blank' to={{ pathname: 'https://www.vusa.lt/' }}>
           <img src='https://vusa.lt/logos/vusa.lin.hor.svg' width={drawerWidth * 0.4}></img>
         </Link>
       </Box>
