@@ -72,6 +72,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
       <AppBar
         position='fixed'
         sx={{
+          display: { sm: 'none' },
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: 'white',
@@ -90,7 +91,6 @@ export default function NavigationDrawer(props: NavDrawerProps) {
           <Typography color='primary' variant='h6'>
             {TextDictionary.SgvHeader['LT']}
           </Typography>
-          <SearchBar />
         </Toolbar>
       </AppBar>
       <Box
