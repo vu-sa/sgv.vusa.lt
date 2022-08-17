@@ -11,6 +11,7 @@ import { getUniqueCategories } from './utilities/ParseCategoryName'
 import MainMenu from './pages/MainMenu'
 import MainPage from './pages/MainPage'
 import './App.css'
+import PostFormatting from './pages/PostFormatting'
 
 export default function App() {
   useEffect(() => {
@@ -37,6 +38,9 @@ export default function App() {
         </Route>
         <Route path={'/:category/:subcategory'}>
           <MainPage category={category} posts={posts} />
+        </Route>
+        <Route exact path={'/PostEditing'}>
+          <PostFormatting posts={posts} />
         </Route>
       </NavigationDrawer>
     </ThemeProvider>

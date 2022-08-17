@@ -1,28 +1,36 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React from 'react'
-import { Box, Link, Typography } from '@mui/material'
+import { Box, Grid, Link, Typography } from '@mui/material'
 import Markdown from 'markdown-to-jsx'
+import ImageCarousel from './ImageCarousel'
 
 export default function MarkdownMapper(props) {
   return (
     <Markdown
       options={{
         overrides: {
-          Parallel: {
-            component: Box,
+          parallel: {
+            component: Grid,
             props: {
-              sx: {
-                flexDirection: 'row',
-                flexFlow: 'row wrap',
-                flexWrap: 'wrap',
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              },
+              container: true,
+              spacing: 1,
             },
           },
-          Box: { component: Box, props: { sx: { padding: '1%' } } },
+          gridItem: {
+            component: ({ ...props }) => <Grid {...props} />,
+            props: {
+              item: true,
+              sx: { padding: '1%' },
+            },
+          },
+          img: {
+            component: ({ ...props }) => <img {...props} />,
+            props: {
+              width: '100%',
+              height: 'auto',
+            },
+          },
+          box: { component: Box, props: { sx: { padding: '1%' } } },
           h1: {
             component: Typography,
             props: {
@@ -51,6 +59,9 @@ export default function MarkdownMapper(props) {
           strong: {
             component: ({ ...props }) => <Typography {...props} />,
             props: { sx: { fontWeight: 600 }, display: 'inline' },
+          },
+          imageCarousel: {
+            component: ({ images, ...props }) => <ImageCarousel images={images} {...props} />,
           },
         },
       }}
