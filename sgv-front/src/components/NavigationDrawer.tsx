@@ -14,8 +14,9 @@ import CategoryAccordion from './CategoryAccordion'
 import { Link, useParams } from 'react-router-dom'
 import { TextDictionary } from '../locale/TextDictionary'
 import SearchBar from './SearchBar'
+import CategoryAccordionLink from './CategoryAccordionLink'
 
-const drawerWidth = 380
+const drawerWidth = 320
 
 type NavDrawerProps = {
   categories: Category[]
@@ -46,16 +47,18 @@ export default function NavigationDrawer(props: NavDrawerProps) {
             />
           </ListItem>
         ))}
+        {
+          <ListItem sx={{ width: '100%' }}>
+            <CategoryAccordionLink
+              displayName='VU atributika'
+              link='https://www.vu.lt/parduotuve/'
+            />
+          </ListItem>
+        }
       </List>
       <Box sx={{ pt: '32px', display: 'flex', justifyContent: 'center' }}>
         <Link target='_blank' to='https://vusa.lt/'>
           <img src='https://vusa.lt/logos/vusa.lin.hor.svg' width={drawerWidth * 0.4}></img>
-        </Link>
-        <Link target='_blank' to='https://www.vu.lt/parduotuve/'>
-          <img
-            src='https://ataskaita2021.vusa.lt/img/pkp_logo/atributika.jpg'
-            width={drawerWidth * 0.3}
-          ></img>
         </Link>
       </Box>
     </div>
@@ -71,11 +74,12 @@ export default function NavigationDrawer(props: NavDrawerProps) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: 'white',
         }}
       >
         <Toolbar>
           <IconButton
-            color='inherit'
+            color='primary'
             aria-label='open drawer'
             edge='start'
             onClick={handleDrawerToggle}
@@ -83,7 +87,7 @@ export default function NavigationDrawer(props: NavDrawerProps) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap component='div'>
+          <Typography color='primary' variant='h6'>
             {TextDictionary.SgvHeader['LT']}
           </Typography>
           <SearchBar />

@@ -22,7 +22,7 @@ export default function MarkdownMapper(props) {
               },
             },
           },
-          Box: { component: Box, props: { sx: { paddingRight: '5%' } } },
+          Box: { component: Box, props: { sx: { padding: '1%' } } },
           h1: {
             component: Typography,
             props: {
@@ -34,9 +34,12 @@ export default function MarkdownMapper(props) {
           h3: { component: Typography, props: { gutterBottom: true, variant: 'subtitle1' } },
           h4: {
             component: Typography,
-            props: { gutterBottom: true, variant: 'caption', paragraph: true },
+            props: { gutterBottom: true, variant: 'h5', paragraph: true },
           },
-          p: { component: Typography, props: { paragraph: true } },
+          p: {
+            component: ({ ...props }) => <Typography {...props} />,
+            props: { paragraph: true, sx: { fontWeight: 'inherit' } },
+          },
           a: { component: Link },
           li: {
             component: ({ ...props }) => (
@@ -44,6 +47,10 @@ export default function MarkdownMapper(props) {
                 <Typography component='span' {...props} />
               </li>
             ),
+          },
+          strong: {
+            component: ({ ...props }) => <Typography {...props} />,
+            props: { sx: { fontWeight: 600 }, display: 'inline' },
           },
         },
       }}

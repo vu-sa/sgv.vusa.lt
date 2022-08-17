@@ -1,34 +1,10 @@
-/* raleway-regular - latin */
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Inter Family';
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/raleway-v28-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''), url('./fonts/raleway-v28-latin-regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('./fonts/raleway-v28-latin-regular.woff2') format('woff2'),
-    /* Super Modern Browsers */ url('./fonts/raleway-v28-latin-regular.woff') format('woff'),
-    /* Modern Browsers */ url('./fonts/raleway-v28-latin-regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */ url('./fonts/raleway-v28-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'Myriad Pro Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/Myriad Pro Regular.ttf'); /* IE9 Compat Modes */
-  src: local(''), /* IE6-IE8 */ url('./fonts/Myriad Pro Regular.ttf') format('ttf'),
-    /* Super Modern Browsers */ url('./fonts/Myriad Pro Regular.ttf') format('ttf'),
-    /* Modern Browsers */ url('./fonts/Myriad Pro Regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */ url('./fonts/Myriad Pro Regular.ttf') format('ttf'); /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'Myriad Pro Bold';
-  font-style: bold;
-  font-weight: 600;
-  src: url('./fonts/Myriad Pro Bold.ttf'); /* IE9 Compat Modes */
-  src: local(''), /* IE6-IE8 */ url('./fonts/Myriad Pro Bold.ttf') format('ttf'),
-    /* Super Modern Browsers */ url('./fonts/Myriad Pro Bold.ttf') format('ttf'),
-    /* Modern Browsers */ url('./fonts/Myriad Pro Bold.ttf') format('truetype'),
-    /* Safari, Android, iOS */ url('./fonts/Myriad Pro Bold.ttf') format('ttf'); /* Legacy iOS */
+  src: url('./fonts/Inter-VariableFont_slnt,wght.ttf'); /* IE9 Compat Modes */
+  src: local(''), /* IE6-IE8 */ url('./fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf'),
+    /* Super Modern Browsers */ url('./fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf'),
+    /* Modern Browsers */ url('./fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('./fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf'); /* Legacy iOS */
 }

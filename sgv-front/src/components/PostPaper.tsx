@@ -3,6 +3,7 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { Category } from '../types/Category'
 import { PostEntity } from '../types/Post'
 import Markdown from './MarkdownMapper'
+import PostContainer from './PostContainer'
 
 type SubcategoryPaperProps = {
   posts: PostEntity[]
@@ -36,25 +37,12 @@ export default function SubcategoryPaper({
     <Container ref={subcategoryRef}>
       <Paper elevation={3} sx={{ padding: '3%', marginTop: '2%' }}>
         {subcategoryName && posts.length > 1 ? (
-          <Typography variant='h2'>{subcategoryName}</Typography>
+          <Typography sx={{ textAlign: 'center', width: '100%' }} variant='h3'>
+            {subcategoryName}
+          </Typography>
         ) : null}
         {posts.map((post, key) => (
-          <Container
-            sx={{
-              width: '100%',
-              justifyContent: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-            key={key}
-          >
-            <Container sx={{ textAlign: 'center', marginBottom: '2%' }}>
-              <Typography sx={{ padding: '2%', fontWeight: 600 }} variant='h5'>
-                {post.title}
-              </Typography>
-            </Container>
-            <Markdown>{post.content}</Markdown>
-          </Container>
+          <PostContainer post={post} key={key}></PostContainer>
         ))}
       </Paper>
     </Container>

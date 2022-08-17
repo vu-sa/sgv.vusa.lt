@@ -28,7 +28,7 @@ export default function CategoryAccordion(props: CategoryAccordionProps) {
         }}
       >
         <Link style={{ textDecoration: 'none' }} to={`/${props.category.urlName}`}>
-          <Typography color='primary' variant='h6'>
+          <Typography color='primary' variant='subtitle1'>
             {props.category.displayName}
           </Typography>
         </Link>
