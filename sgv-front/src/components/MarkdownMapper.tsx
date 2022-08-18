@@ -35,11 +35,11 @@ export default function MarkdownMapper(props) {
             component: Typography,
             props: {
               gutterBottom: true,
-              variant: 'h1',
+              variant: 'h2',
             },
           },
           h2: { component: Typography, props: { gutterBottom: true, variant: 'h3' } },
-          h3: { component: Typography, props: { gutterBottom: true, variant: 'subtitle1' } },
+          h3: { component: Typography, props: { gutterBottom: true, variant: 'h4' } },
           h4: {
             component: Typography,
             props: { gutterBottom: true, variant: 'h5', paragraph: true },
@@ -61,7 +61,9 @@ export default function MarkdownMapper(props) {
             props: { sx: { fontWeight: 600 }, display: 'inline' },
           },
           imageCarousel: {
-            component: ({ images, ...props }) => <ImageCarousel images={images} {...props} />,
+            component: ({ images, ...props }) => (
+              <ImageCarousel images={images.split(',')} {...props} />
+            ),
           },
         },
       }}

@@ -20,9 +20,27 @@ export const Categories: Record<string, Category> = {
         priority: 3
     },
     "Akademinis ir karjeros konsultavimas":{
-        displayName: "Psichologinis konsultavimas",
+        displayName: "Akademinis ir karjeros konsultavimas",
         cardImageUrl: "https://i.imgur.com/wOBvD7X.jpg",
         titleImageUrl: "https://i.imgur.com/ctNSRqi.jpg",
         priority: 4
-    }
+    },
+    "Laisvalaikis VU": {
+        displayName: "Laisvalaikis VU",
+        cardImageUrl: "https://i.imgur.com/wOBvD7X.jpg",
+        titleImageUrl: "https://i.imgur.com/ctNSRqi.jpg",
+        priority: 5
+    },
+    "VU teikiamos paslaugos": {
+        displayName: "VU teikiamos paslaugos",
+        cardImageUrl: "https://i.imgur.com/wOBvD7X.jpg",
+        titleImageUrl: "https://i.imgur.com/ctNSRqi.jpg",
+        priority: 6
+    },
+    "Tavo studijų vieta":{
+        displayName: "Tavo studijų vieta",
+        cardImageUrl: "https://i.imgur.com/2k5RaQ2.jpg",
+        titleImageUrl: "https://i.imgur.com/mevdtHL.jpg",
+        priority: 9
+    },
 }

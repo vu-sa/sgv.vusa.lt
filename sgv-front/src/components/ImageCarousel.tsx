@@ -3,15 +3,17 @@ import Carousel from 'react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'
 
 type ImageCarouselProps = {
-  images: string[]
+  images: string[] | undefined
 }
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
   return (
-    <Carousel>
-      {images.map((image, i) => (
-        <img key={i} style={{ width: '100%', height: 'auto' }} src={image} />
-      ))}
+    <Carousel sx={{ width: { sm: '80%', md: '60%', lg: '60%' }, height: '350px', margin: 'auto' }}>
+      {images != undefined
+        ? images.map((image, i) => (
+            <img key={i} style={{ width: 'auto', height: '350px' }} src={image} />
+          ))
+        : null}
     </Carousel>
   )
 }

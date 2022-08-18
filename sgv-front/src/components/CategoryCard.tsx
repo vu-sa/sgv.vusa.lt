@@ -35,9 +35,10 @@ export default function CategoryCard({
               display: '-webkit-box',
               WebkitLineClamp: '2',
               WebkitBoxOrient: 'vertical',
+              textAlign: 'center',
             }}
             gutterBottom
-            variant='h6'
+            variant='h5'
             component='div'
           >
             {category.displayName}

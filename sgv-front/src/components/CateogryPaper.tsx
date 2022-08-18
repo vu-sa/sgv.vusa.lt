@@ -38,7 +38,15 @@ export default function CategoryPaper({ posts, category, subcategory }: Category
           display: 'flex',
         }}
       >
-        <Typography sx={{ verticalAlign: 'center', color: 'white', margin: 'auto' }} variant='h3'>
+        <Typography
+          sx={{
+            verticalAlign: 'center',
+            color: 'white',
+            margin: 'auto',
+            textShadow: '1px 1px 1px gray',
+          }}
+          variant='h3'
+        >
           {category.displayName}
         </Typography>
       </div>

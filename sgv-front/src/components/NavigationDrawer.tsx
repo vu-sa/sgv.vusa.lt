@@ -15,6 +15,7 @@ import { Link, useParams } from 'react-router-dom'
 import { TextDictionary } from '../locale/TextDictionary'
 import SearchBar from './SearchBar'
 import CategoryAccordionLink from './CategoryAccordionLink'
+import FacutlySelect from './FacutlySelect'
 
 const drawerWidth = 320
 

@@ -1,12 +1,13 @@
 import { Box, Button, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { MutableRefObject } from 'react'
 import { TextDictionary } from '../locale/TextDictionary'
 
 type CallToActionProps = {
   locale: string
+  actionFunction: () => void
 }
 
-export default function CallToAction({ locale }: CallToActionProps) {
+export default function CallToAction({ locale, actionFunction }: CallToActionProps) {
   return (
     <section>
       <Container maxWidth='md'>
@@ -18,7 +19,12 @@ export default function CallToAction({ locale }: CallToActionProps) {
             {TextDictionary.CallToActionDescription[locale]}
           </Typography>
           <Box mt={4}>
-            <Button variant='contained' size='large' color='primary'>
+            <Button
+              onClick={() => actionFunction()}
+              variant='contained'
+              size='large'
+              color='primary'
+            >
               {TextDictionary.CallToActionPrimaryAction[locale]}
             </Button>
           </Box>
